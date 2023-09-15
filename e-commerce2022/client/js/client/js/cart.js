@@ -28,6 +28,27 @@ const displayCart = () => {
 
     modalContainer.append(modalHeader);
 
+    //modal Body
+    if (cart.length > 0){
+    cart.forEach((product) => {
+        const modalBody = document.createElement("div");
+        modalBody.className = "modal-body";
+        modalBody.innerHTML = `
+        <div class="product">
+            <img class="product-img" src="${product.img}"/>
+        <div class="product-info">
+            <h1>${product.productName}</h1>
+        </div>
+        <div class="quantity">
+            <span class="quantity-btn-decrese">-</span>
+            <span class="quantity-input">${product.quanty}</span>
+            <span class="quantity-btn-increse">+</span>
+        </div>
+            <div class="price">$${product.price*product.quanty}</div>
+            <div class="delete-product">❌</div>
+        </div>    
+        `;
+        modalContainer.append(modalBody);
 };
 
 cartBtn.addEventListener("click", displayCart);
