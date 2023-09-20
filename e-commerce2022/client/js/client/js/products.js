@@ -1,37 +1,28 @@
-
 const productos = [
 
 {
     id:1,
-    productName: "Lapiz",
-    price: 200,
+    productName: "Sandia",
+    price: 10,
     quanty: 1,
-    img: "/client/media/lapiz.png",
+    img: "/client/media/sandia.png",
 
 
 },
 {
     id:2,
-    productName: "Lapicera",
-    price: 300,
+    productName: "Banana",
+    price: 950,
     quanty: 1,
-    img: "/client/media/lapicera.png",
+    img: "/client/media/banana.png",
 
 },
 {
     id:3,
-    productName: "Mochila",
-    price: 16000,
+    productName: "Cerveza",
+    price: 750,
     quanty: 1,
-    img: "/client/media/mochila.png",
-
-},
-{
-    id:4,
-    productName: "Cuaderno",
-    price: 4200,
-    quanty: 1,
-    img: "/client/media/cuaderno.png",
+    img: "/client/media/cerveza.png",
 
 },
 
