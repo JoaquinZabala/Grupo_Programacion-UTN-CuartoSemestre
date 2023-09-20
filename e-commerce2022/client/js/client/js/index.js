@@ -10,18 +10,30 @@ productos.forEach((product)=>{
   `;
       shopContent.append(content);
     const buyButton = document.createElement("button");
-    buyButton.innerText = "Comprar";
+    buyButton.innerText = "Buy";
 
     content.append(buyButton);
 
-    buyButton.addEventListener("click", ()=>{
+   buyButton.addEventListener("click", ()=>{
+      const repeat = cart.some((repeatProduct)=> repeatProduct.id === product -id);
+
+      if(repeat){
+        //Si el producto ya esta en la lista de compras lo quitamos
+        cart.map((prod)=>{
+          if (prod.id === product- id) {
+            prod.quanty++;
+            displayCartCounter();//SE AGREGO ESTO
+          }
+        });
+      }else {
         cart.push({
             id: product.id,
             productName: product.productName,
             price: product.price,
             quanty: product.quanty,
             img: product.img,
-        })
-        console.log(cart)
-    })    
+        });  
+        displayCartCounter() ;//Y ESTO
+      }
+    });
 });
