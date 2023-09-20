@@ -2,6 +2,7 @@ const modalContainer = document.getElementById("modal-container");
 const modalOverlay = document.getElementById("modal-overlay");
 
 const cartBtn = document.getElementById("cart-btn");
+const cartCounter = document.getElementById("cart-counter");
 
 const displayCart = () => {
     modalContainer.innerHTML = "";
@@ -55,6 +56,7 @@ const displayCart = () => {
         if (product.quanty !==1){
             product.quanty--;
             displayCart();
+             displayCartCounter();
         }
     })
 
@@ -62,6 +64,7 @@ const displayCart = () => {
     increse.addEventListener("click", () =>{
         product.quanty++;
         displayCart();
+         displayCartCounter();
     });
 
     //delete
@@ -82,6 +85,12 @@ modalFooter.innerHTML = `
 
 `;
 modalContainer.append(modalFooter);
+    }else {
+        const modalText = document.createElement ("h2");
+        modalText.className = "modal-body";
+        modalText.innerText = "your cart is empty";
+        modalContainer.append(modaltext); 
+    } 
 };
 
 cartBtn.addEventListener("click", displayCart);
@@ -90,4 +99,13 @@ const deleteCarProduct =(id)=>{
     const foundId = cart.findIndex((element)=> element.id === id)
     cart.splice(foundId , 1);
     displayCart();
+    displayCartCounter();
+};
+const displayCartCounter = () => {
+    if(cartLength > 0 ){
+        cartCounter.style.display = "block"
+        cartCounter.innerText = cardLength;
+    }else{
+     cartCounter.style.display ="none";}
+    }
 };
