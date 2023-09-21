@@ -92,6 +92,56 @@ modalContainer.append(modalFooter);
     });
 
     const checkoutButton = modalFooter.querySelector("#checkout-btn");
+            checkoutButton.remove();
+
+        const orderData = {
+            quantity: 1,
+            description: "compra de ecommerce"
+            price: total;
+        };
+
+        fetch("http://localhost:8080/create_preference", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(orderData),
+        })
+          .then(function(response){
+            return response.json();
+          })
+          .then(function(preference){
+            createCheckoutButton(preference.id);
+          })
+          .catch(function(){
+            alert("Unexpected error");
+          });
+    });
+   function createCheckoutButton(preferenceId) {
+
+             const bricksBuilder = mercadopago.bricks();
+
+             const renderComponent = async (bricksBuilder) =>{
+              //  if (window.checkoutButton) checkoutButton.unmount();
+
+                await bricksBuilder.create(
+                    "wallet",
+                    "button-checkout",
+
+                 {
+                    initialization: {
+                        preferenceId: preferenceId,
+                    },
+                    callbacks:{
+                        onError: (error) => console.error(error),
+                        onReady: ()=>{},
+                    },
+                 }
+                );
+             };
+             window.checkoutButton = renderComponent(bricksBuilder);
+        }
+    
 
     }else {
         const modalText = document.createElement ("h2");
