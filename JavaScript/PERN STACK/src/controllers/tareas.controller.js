@@ -3,7 +3,6 @@ import { pool} from '../db.js';
 export const listarTareas = async (req,res) => {
    
         const resultado = await pool.query('SELECT *FROM tareas');
-        console.log(resultado);
         return res.json(resultado.rows);
 }
 
