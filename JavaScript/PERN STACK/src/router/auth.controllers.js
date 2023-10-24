@@ -1,3 +1,10 @@
+import {pool} from "../db.js"
+import bcrypt from "bcrypt";
+import {createAccesoToken} from"../libs/jwt.js"
+
+
+export const signin =  (req,res) => res.send("ingresando");
+
 export const signup = async(req, res) => {
     const {name , email, password} = req.body;
 
@@ -20,3 +27,6 @@ export const signup = async(req, res) => {
         }
     }
 };
+export const signout = (req,res) => res.send ("Cerrado sesion");
+
+export const profile = (req,res) => res.send ("Perfil de usuario");
