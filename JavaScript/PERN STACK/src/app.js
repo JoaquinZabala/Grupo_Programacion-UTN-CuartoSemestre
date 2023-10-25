@@ -2,6 +2,8 @@ import express from "express";
 import morgan from "morgan";
 import tareasRoutes from "./router/tarea.routes.js"
 import authRouter from "./router/auth.routes.js"
+import cookieParser from "cookie-parser";
+
 
 const app = express();
 //Middlewares
