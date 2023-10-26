@@ -18,33 +18,7 @@ function adios(nombre, otroCallback) {
         console.log('adios ' + nombre);
         otroCallback();
     }, 1500);
-
 }
-
-// Funcion recursiva
-function conversacion(nombre, veces, miCallback){
-    if (veces> 0) {
-        hablar( function () {
-            conversacion(nombre, --veces, miCallback); 
-
-            });
-         } else {
-            miCallback(nombre, miCallback);
-    }
-
-}
-
-
-// *** Proceso Principal *** 
-
-console.log('iniciando el proceso...')
-hola('Ariel', function(nombre) {
-    conversacion(nombre, 6, function(){
-        console.log('terminado el proceso.....');  
-        });
-    });
-
-
 
 // hola('carlos', function(nombre) {
 //      hablar(function(){
