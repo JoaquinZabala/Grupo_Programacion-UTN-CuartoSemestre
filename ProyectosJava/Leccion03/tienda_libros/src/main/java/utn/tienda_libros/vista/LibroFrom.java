@@ -26,9 +26,7 @@ public class LibroFrom extends JFrame {
     public LibroFrom(LibroServicio libroServicio){
         this.libroServicio = libroServicio;
         iniciarForma();
-        agregarButton.addActionListener(e -> {
-
-        });
+        agregarButton.addActionListener(e -> agregarLibro());
     }
 
     private  void iniciarForma(){
@@ -44,6 +42,41 @@ public class LibroFrom extends JFrame {
         setLocation(x, y);
     }
 
+    private void agregarLibro(){
+    //Leer los valores del formulario
+        if(libroTexto.getText().equals("")){
+             mostrarMensaje("Ingresa el nombre del libro");
+            libroTexto.requestFocusInWindow();
+            return;
+        }
+        var nombreLibro = libroTexto.getText();
+        var autor = autorTexto.getText();
+        var precio = Double.parseDouble(precioTexto.getText());
+        var existencia = Integer.parseInt(existenciasTexto.getText());
+        //Creamos el objeto libro
+        var libro = new Libro(null, nombreLibro,autor,precio,existencias);
+        //libro.setNombreLibro(nombreLibro);
+        //libro.setAutor(autor);
+        //libro.setPrecio(precio);
+        //libro.setExistencias(existencias);
+        this.libroServicio.guardarLibro(libro);
+        mostrarMensaje("Se agrego el libro...");
+        limpiarFormulario();
+        listarLibros();
+         
+    }
+
+    private void limpiarFormulario(){
+        libroTexto.setText("");
+        autorTexto.setText("");
+        precioTexto.setText("");
+        existenciasTexto.setText("");
+    }
+
+    private void mostarMensaje(String mensaje){
+        JOptiionPane.showMessageDialog(this, mensaje);
+    }
+    
     private void createUIComponents() {
         this.tablaModeloLibros = new DefaultTableModel(0, 5);
         String[] cabecera = {"Id", "Libro", "Autor", "Precio", "Existencias"};
