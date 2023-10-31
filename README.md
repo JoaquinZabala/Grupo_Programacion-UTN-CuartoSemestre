@@ -18,8 +18,6 @@ Integrantes:
 
 :computer: Nadia Florencia  Cruz
 
-:computer: Cintia Analy Contreras
-
 :computer: Joaquín Zabala
 
 
@@ -40,26 +38,22 @@ Integrantes:
 	</tr>
 	<tr>
 		<td>3°</td>
-		<td>Cintia Contreras</td>
-	</tr> 
-	<tr>
-		<td>4°</td>
 		<td>Nadia Cruz</td>
 	</tr> 
 	<tr>
-		<td>5°</td>
+		<td>4°</td>
 		<td>Camila Gonzalez</td>
 	</tr>
 	<tr>
-		<td>6°</td>
+		<td>5°</td>
 		<td>Ayelen Cabral</td>
 	</tr>
 	<tr>
-		<td>7°</td>
+		<td>6°</td>
 		<td>Joaquin Zabala</td>
 	</tr>	
 	<tr>
-		<td>8°</td>
+		<td>7°</td>
 		<td>Nahuel Alaniz</td>
 	</tr>
 	
